@@ -1,0 +1,30 @@
+{
+  "name": "familyboard",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:phone",
+    "dev:phone": "cd apps/mobile && npm run start",
+    "dev:tablet": "cd apps/tablet && npm run start",
+    "dev:firebase": "cd packages/firebase && npm run emulators",
+    "ios": "cd apps/mobile && npm run ios",
+    "android": "cd apps/mobile && npm run android",
+    "ios:tablet": "cd apps/tablet && npm run ios",
+    "android:tablet": "cd apps/tablet && npm run android",
+    "clean": "npm run clean:watchman && npm run clean:metro",
+    "clean:watchman": "watchman watch-del-all",
+    "clean:metro": "rm -rf apps/*/node_modules/.cache/metro-*"
+  },
+  "devDependencies": {
+    "@react-native/eslint-config": "^0.74.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
